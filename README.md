@@ -6,7 +6,18 @@ Personal notebook at [digress.blog](https://digress.blog).
 
 - `index.html` — home (ASCII cosmos + post index)
 - `posts/*.html` — article pages
-- `CNAME` — custom domain for static hosting / GitHub Pages
+- `CNAME` — custom domain for GitHub Pages
+- `.github/workflows/pages.yml` — deploy to GitHub Pages on push to `main`
+
+## Go live (one-time)
+
+DNS for `digress.blog` already points at GitHub Pages. Finish setup in GitHub:
+
+1. Make this repository **public** (free Pages requires a public repo).
+2. Open **Settings → Pages**.
+3. Under **Build and deployment**, set **Source** to **GitHub Actions**.
+4. Merge the site to `main` (or run the **Deploy Digress to GitHub Pages** workflow).
+5. Under **Custom domain**, confirm `digress.blog` and enable **Enforce HTTPS** once the certificate is ready.
 
 ## Adding a post
 
@@ -15,6 +26,6 @@ Personal notebook at [digress.blog](https://digress.blog).
    - `data-d` one of: `phil` | `ml` | `quant` | `game` | `build`
    - `href` pointing at the post file
    - number, tag, date, title, one-line description, status
-3. Deploy (Porkbun Static Hosting GitHub sync, or upload the site root).
+3. Merge to `main` — Pages deploys automatically.
 
 Draft HTML sources can live alongside while you extract; published reading pages belong under `posts/`.
