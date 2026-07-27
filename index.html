@@ -33,7 +33,8 @@ html[data-theme=light] #crt::after{background:radial-gradient(125% 125% at 50% 4
 .sub{font-family:var(--serif);font-style:italic;font-size:clamp(15px,3.4vw,21px);color:var(--sub);margin-top:16px;max-width:34ch}
 .sub b{color:var(--ink);font-style:normal}
 .wrap{max-width:780px;margin:0 auto;padding:0 22px}
-.filters{display:flex;flex-wrap:wrap;gap:4px 18px;padding:32px 0 8px;border-bottom:1px solid var(--hair)}
+.lede{font-family:var(--serif);font-size:clamp(17px,3.6vw,20px);line-height:1.55;color:var(--sub);max-width:42ch;margin:36px 0 0}
+.filters{display:flex;flex-wrap:wrap;gap:4px 18px;padding:28px 0 8px;border-bottom:1px solid var(--hair)}
 .chip{font-family:var(--mono);font-size:11px;border:0;background:transparent;color:var(--sub);padding:6px 0;border-radius:0;cursor:pointer;display:flex;align-items:center;gap:8px;letter-spacing:.08em;text-transform:lowercase}
 .chip .dot{width:6px;height:6px;border-radius:0}
 .chip[data-d=phil] .dot{background:#9a78d6}.chip[data-d=ml] .dot{background:#3fcf9a}.chip[data-d=quant] .dot{background:#e0922f}.chip[data-d=game] .dot{background:#e0573f}.chip[data-d=build] .dot{background:#4f9fd0}
@@ -68,6 +69,7 @@ footer .spacer{margin-left:auto}
     <div class="sub">Probably partially wrong.</div>
   </header>
   <div class="wrap">
+    <p class="lede">Inner unfinished wanderings across the things I like.</p>
     <div class="filters" id="filters">
       <button class="chip" data-d="phil"><span class="dot"></span>philosophy</button>
       <button class="chip" data-d="ml"><span class="dot"></span>machine learning</button>
