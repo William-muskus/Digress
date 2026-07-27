@@ -26,35 +26,33 @@ html[data-theme=light] #crt::after{background:radial-gradient(125% 125% at 50% 4
 .bar .brand{color:var(--ink);font-weight:700;letter-spacing:.18em;font-size:14px}
 .bar .spacer{margin-left:auto}.bar .links{display:flex;gap:16px}
 @media(max-width:520px){.bar .links{display:none}}
-.btn{font-family:var(--mono);font-size:11px;border:1px solid var(--hair);background:var(--panel);color:var(--sub);padding:6px 11px;border-radius:999px;cursor:pointer;display:flex;gap:7px;align-items:center}
+.btn{font-family:var(--mono);font-size:11px;border:0;border-bottom:1px solid var(--hair);background:transparent;color:var(--sub);padding:4px 0;border-radius:0;cursor:pointer;display:flex;gap:7px;align-items:center;letter-spacing:.06em}
+.btn:hover{color:var(--ink);border-bottom-color:var(--ink)}
 .masthead{height:128vw;max-height:86vh;min-height:340px;display:flex;flex-direction:column;justify-content:flex-end;padding:0 22px 7vw}
 .wm{font-family:var(--sans);font-weight:900;font-size:clamp(62px,17vw,180px);line-height:.86;letter-spacing:-.045em;color:var(--ink);text-shadow:0 6px 60px rgba(0,0,0,.6)}
 .sub{font-family:var(--serif);font-style:italic;font-size:clamp(15px,3.4vw,21px);color:var(--sub);margin-top:16px;max-width:34ch}
 .sub b{color:var(--ink);font-style:normal}
-.wrap{max-width:880px;margin:0 auto;padding:0 22px}
-.lede{font-family:var(--serif);font-size:clamp(18px,4.2vw,23px);line-height:1.5;color:var(--sub);max-width:58ch;margin:38px auto 6px;text-align:center}
+.wrap{max-width:780px;margin:0 auto;padding:0 22px}
+.lede{font-family:var(--serif);font-size:clamp(18px,4.2vw,23px);line-height:1.5;color:var(--sub);max-width:52ch;margin:38px 0 6px}
 .lede b{color:var(--ink);font-weight:500}
-.filters{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:28px 0 14px}
-.chip{font-family:var(--mono);font-size:11px;border:1px solid var(--hair);background:var(--panel);color:var(--sub);padding:8px 13px;border-radius:999px;cursor:pointer;display:flex;align-items:center;gap:8px;backdrop-filter:blur(8px)}
-.chip .dot{width:7px;height:7px;border-radius:50%}
+.filters{display:flex;flex-wrap:wrap;gap:4px 18px;padding:32px 0 8px;border-bottom:1px solid var(--hair)}
+.chip{font-family:var(--mono);font-size:11px;border:0;background:transparent;color:var(--sub);padding:6px 0;border-radius:0;cursor:pointer;display:flex;align-items:center;gap:8px;letter-spacing:.08em;text-transform:lowercase}
+.chip .dot{width:6px;height:6px;border-radius:0}
 .chip[data-d=phil] .dot{background:#9a78d6}.chip[data-d=ml] .dot{background:#3fcf9a}.chip[data-d=quant] .dot{background:#e0922f}.chip[data-d=game] .dot{background:#e0573f}.chip[data-d=build] .dot{background:#4f9fd0}
-.chip.off{opacity:.32}
-.index{padding:16px 0 90px;display:flex;flex-direction:column;gap:10px}
-.entry{display:block;padding:22px 18px;border:1px solid var(--hair);border-radius:14px;background:var(--panel);backdrop-filter:blur(12px);position:relative;transition:transform .3s,border-color .3s}
-.entry:hover{transform:translateY(-2px);border-color:var(--sub)}
-.entry::before{content:"";position:absolute;left:0;top:16px;bottom:16px;width:3px;border-radius:3px;background:var(--ac);opacity:0;transition:.3s}
+.chip:hover{color:var(--ink)}
+.chip.off{opacity:.28;text-decoration:line-through;text-decoration-thickness:1px}
+.index{padding:0 0 90px;display:flex;flex-direction:column}
+.entry{display:block;padding:28px 0;border-bottom:1px solid var(--hair);background:transparent;position:relative;transition:color .25s}
+.entry:hover .etitle{color:var(--ac)}
 .entry[data-d=phil]{--ac:#9a78d6}.entry[data-d=ml]{--ac:#3fcf9a}.entry[data-d=quant]{--ac:#e0922f}.entry[data-d=game]{--ac:#e0573f}.entry[data-d=build]{--ac:#4f9fd0}
-.entry:hover::before{opacity:1}
-.ehead{display:flex;align-items:center;gap:11px;flex-wrap:wrap;font-family:var(--mono);font-size:11px}
-.enum{color:var(--sub);opacity:.7}.etag{color:var(--ac);letter-spacing:.06em;text-transform:uppercase;display:inline-flex;align-items:center;gap:6px}
-.etag::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--ac)}
-.edate{margin-left:auto;color:var(--sub);opacity:.7}
-.etitle{font-family:var(--sans);font-weight:800;font-size:clamp(21px,5vw,29px);line-height:1.12;letter-spacing:-.02em;color:var(--ink);margin:10px 0 7px}
-.edesc{color:var(--sub);font-size:15.5px;line-height:1.5;max-width:62ch}
-.estatus{font-family:var(--mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--sub);opacity:.8;margin-top:10px;display:inline-flex;align-items:center;gap:7px}
-.estatus::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--sub)}
-.estatus.wip::before{background:#e0922f}
-footer{border-top:1px solid var(--hair);padding:24px 22px 70px;font-family:var(--mono);font-size:11px;color:var(--sub);opacity:.85;display:flex;gap:8px 22px;flex-wrap:wrap;align-items:center;background:var(--panel);backdrop-filter:blur(12px);border-radius:14px 14px 0 0;margin-top:20px}
+.ehead{display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;letter-spacing:.06em}
+.enum{color:var(--sub);opacity:.55}.etag{color:var(--ac);letter-spacing:.1em;text-transform:uppercase}
+.edate{margin-left:auto;color:var(--sub);opacity:.55}
+.etitle{font-family:var(--sans);font-weight:800;font-size:clamp(22px,4.6vw,30px);line-height:1.12;letter-spacing:-.02em;color:var(--ink);margin:12px 0 8px;transition:color .25s}
+.edesc{color:var(--sub);font-size:16px;line-height:1.55;max-width:58ch}
+.estatus{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--sub);opacity:.7;margin-top:14px}
+.estatus.wip{color:#e0922f;opacity:.9}
+footer{border-top:1px solid var(--hair);padding:28px 0 70px;font-family:var(--mono);font-size:11px;color:var(--sub);opacity:.75;display:flex;gap:8px 22px;flex-wrap:wrap;align-items:center;background:transparent;margin-top:8px;letter-spacing:.04em}
 footer .spacer{margin-left:auto}
 </style>
 </head>
@@ -81,11 +79,7 @@ footer .spacer{margin-left:auto}
       <button class="chip" data-d="build"><span class="dot"></span>builds</button>
     </div>
     <main class="index" id="index">
-      <a class="entry" data-d="phil"><div class="ehead"><span class="enum">001</span><span class="etag">philosophy</span><span class="edate">2026.06</span></div><div class="etitle">The Shape of Change</div><div class="edesc">You are not what has happened to you. You are the shape that happening carved &mdash; and how that shape erodes.</div><span class="estatus">published</span></a>
-      <a class="entry" data-d="ml"><div class="ehead"><span class="enum">002</span><span class="etag">machine learning</span><span class="edate">2026.06</span></div><div class="etitle">Self-Modulating Attention</div><div class="edesc">What if a transformer could watch its own attention and decide when to think harder?</div><span class="estatus">published</span></a>
-      <a class="entry" data-d="quant"><div class="ehead"><span class="enum">003</span><span class="etag">quant</span><span class="edate">2026.05</span></div><div class="etitle">Tiresias: a deterministic Bitcoin cycle model</div><div class="edesc">Five causal laws, derived not fitted.</div><span class="estatus wip">work in progress</span></a>
-      <a class="entry" data-d="game"><div class="ehead"><span class="enum">004</span><span class="etag">game design</span><span class="edate">2026.05</span></div><div class="etitle">Valdenmoor &mdash; the deep class tree</div><div class="edesc">A tactical RPG where the branches exclude each other.</div><span class="estatus wip">work in progress</span></a>
-      <a class="entry" data-d="build"><div class="ehead"><span class="enum">005</span><span class="etag">builds</span><span class="edate">2026.05</span></div><div class="etitle">A voice on the wrist</div><div class="edesc">Talking to my agents from a $39 programmable watch.</div><span class="estatus wip">work in progress</span></a>
+      <a class="entry" data-d="phil" href="#"><div class="ehead"><span class="enum">001</span><span class="etag">philosophy</span><span class="edate">2026.06</span></div><div class="etitle">The Shape of Change</div><div class="edesc">You are not what has happened to you. You are the shape that happening carved &mdash; and how that shape erodes.</div><span class="estatus">published</span></a>
     </main>
     <footer><span>DIGRESS</span><span>&copy; 2026 William Muskus</span><span class="spacer"></span><span>probably partially wrong</span></footer>
   </div>
