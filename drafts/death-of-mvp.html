@@ -34,6 +34,9 @@ a{color:inherit;text-decoration:none}
 .article figure svg{width:100%;height:auto;display:block}
 .back{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--sub);margin-bottom:36px;border-bottom:1px solid var(--hair);padding-bottom:2px}
 .back:hover{color:var(--ink);border-bottom-color:var(--ink)}
+.comments{margin-top:64px;padding-top:28px;border-top:1px solid var(--hair)}
+.comments-label{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--sub);margin-bottom:18px}
+.giscus,.giscus-frame{width:100%}
 footer{max-width:680px;margin:0 auto;padding:0 22px 70px;font-family:var(--mono);font-size:11px;color:var(--sub);opacity:.75;display:flex;gap:8px 22px;flex-wrap:wrap;border-top:1px solid var(--hair);padding-top:24px;letter-spacing:.04em}
 footer .spacer{margin-left:auto}
 @media(max-width:720px){body{font-size:17.5px;line-height:1.68}.article{padding:36px 20px 80px}.article figure{margin:2em -4px}}
@@ -219,6 +222,10 @@ footer .spacer{margin-left:auto}
 
     <p>MVP asked what to build. The better question now is which loop pays. The asset that lasts isn't the loop. It's being where the value is — a rung ahead of the commoditization rising under you — and the loop is just what you hold while you're climbing.</p>
 
+    <section class="comments" id="comments" aria-label="Comments">
+      <div class="comments-label">Discussion</div>
+      <div class="giscus"></div>
+    </section>
 
   </article>
   <footer>
@@ -229,15 +236,42 @@ footer .spacer{margin-left:auto}
   </footer>
 <script>
 const root=document.documentElement;
+function giscusTheme(t){return t==='light'?'noborder_light':'noborder_dark'}
+function setGiscusTheme(t){
+  const frame=document.querySelector('iframe.giscus-frame');
+  if(!frame||!frame.contentWindow) return;
+  frame.contentWindow.postMessage({giscus:{setConfig:{theme:giscusTheme(t)}}},'https://giscus.app');
+}
 function setTheme(t){
   root.setAttribute('data-theme',t);
   document.getElementById('tl').textContent=t==='dark'?'light':'dark';
   document.getElementById('ti').textContent=t==='dark'?'\u25D1':'\u25D0';
   try{localStorage.setItem('digress-theme',t)}catch(e){}
+  setGiscusTheme(t);
 }
 document.getElementById('themebtn').addEventListener('click',()=>setTheme(root.getAttribute('data-theme')==='dark'?'light':'dark'));
 const saved=(()=>{try{return localStorage.getItem('digress-theme')}catch(e){return null}})();
-setTheme(saved||(matchMedia('(prefers-color-scheme:light)').matches?'light':'dark'));
+const initial=saved||(matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');
+setTheme(initial);
+(function loadGiscus(){
+  const s=document.createElement('script');
+  s.src='https://giscus.app/client.js';
+  s.async=true;
+  s.crossOrigin='anonymous';
+  s.setAttribute('data-repo','William-muskus/Digress');
+  s.setAttribute('data-repo-id','R_kgDOTk2ouw');
+  s.setAttribute('data-category','Comments');
+  s.setAttribute('data-category-id','DIC_kwDOTk2ou84DCJWD');
+  s.setAttribute('data-mapping','pathname');
+  s.setAttribute('data-strict','1');
+  s.setAttribute('data-reactions-enabled','1');
+  s.setAttribute('data-emit-metadata','0');
+  s.setAttribute('data-input-position','bottom');
+  s.setAttribute('data-theme',giscusTheme(initial));
+  s.setAttribute('data-lang','en');
+  s.setAttribute('data-loading','lazy');
+  document.getElementById('comments').appendChild(s);
+})();
 </script>
 </body>
 </html>
