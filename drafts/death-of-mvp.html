@@ -24,8 +24,9 @@ a{color:inherit;text-decoration:none}
 .article{max-width:680px;margin:0 auto;padding:48px 22px 100px}
 .meta{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--sub);display:flex;flex-wrap:wrap;gap:8px 14px;margin-bottom:28px;text-transform:uppercase}
 .meta .tag{color:var(--accent)}
-.article h1{font-family:var(--sans);font-weight:800;font-size:clamp(28px,5.5vw,40px);line-height:1.15;letter-spacing:-.03em;margin:0 0 40px}
-.article h1::after{content:"";display:block;width:36px;height:2px;background:var(--accent);margin-top:28px}
+.article h1{font-family:var(--sans);font-weight:800;font-size:clamp(28px,5.5vw,40px);line-height:1.15;letter-spacing:-.03em;margin:0 0 14px}
+.article .dek{font-family:var(--serif);font-style:italic;font-size:clamp(18px,3.2vw,22px);color:var(--sub);line-height:1.35;margin:0 0 40px}
+.article .dek::after{content:"";display:block;width:36px;height:2px;background:var(--accent);margin-top:28px}
 .article p{margin:0 0 1.35em;color:var(--ink)}
 .article ol{margin:1.6em 0 .8em;padding:0;list-style:none;counter-reset:cycle}
 .article ol li{counter-increment:cycle;margin:0 0 .75em;padding-left:2.2em;position:relative}
@@ -59,14 +60,15 @@ footer .spacer{margin-left:auto}
     </div>
 
     <h1>On the Death of MVP, the Birth of MPL, and How Value Will Flow Next</h1>
+    <p class="dek">MVP is dying. Build loops.</p>
 
-    <p>&ldquo;Make something people want.&rdquo; Paul Graham put that on the wall at Y Combinator, and fifteen years of startups were built on the line under it: ship a minimum viable product, put it in front of people, iterate until the market pulls. The advice was right for its time.</p>
-
-    <p>All of it answered one question. Does anyone want this. You couldn't afford to build the real thing just to find out, so you built a cheap fake and read the signals off it. The MVP was never a product. It was a question you could afford to ask.</p>
+    <p>The MVP answered one question. Does anyone want this. You couldn't afford to build the real thing just to find out, so you built a cheap fake and read the signals off it. The MVP was never a product. It was a question you could afford to ask.</p>
 
     <p>The real thing cost too much to use as a question for two reasons: building it, and running it once built. Both are collapsing. An operation can run end to end now with no human inside it. You don't build a smaller version to test it. You run it. The first thing to build isn't a product. It's a loop.</p>
 
     <p>What replaces the MVP is the Minimum Profitable Loop: the smallest run of operations that clears a margin with no human inside it. The MVP guessed at demand. The loop counts the money. The unit of validation moved from one to the other.</p>
+
+    <p>A loop that pulls filings, extracts the fields a buyer already pays a junior to type into a spreadsheet, and drops the result in their inbox overnight &mdash; with a charge attached &mdash; is an MPL. A demo of the extractor is not.</p>
 
     <p>A loop that makes something nobody buys isn't an MPL, it's a hobby. Clearing a margin means the output reaches someone who pays for it, so a minimal distribution is baked into the loop from the start. Just enough to reach the first paying buyer. Reaching a buyer is part of what makes a loop a loop.</p>
 
@@ -153,11 +155,7 @@ footer .spacer{margin-left:auto}
       </svg>
     </figure>
 
-    <p>That climb is the engine. Businesses get autonomized not because anyone decides they should be, but because cost keeps falling and competition keeps pushing, until the loop costs less than the people it replaces.</p>
-
-    <p>You capture the margin while the curve lasts, then the curve flattens and the margin is gone. The loop you ran is now a cheap, reliable part, and the value it still holds — more than the margin ever was — belongs to whatever gets built on top of it. The value didn't disappear when the margin did. It moved up, into the layer the loop made possible.</p>
-
-    <p>Nothing you hold stays where the value is. The value is always one layer up from wherever you're standing.</p>
+    <p>You capture the margin while the curve lasts. When it flattens, the value didn't disappear &mdash; it moved up, into whatever gets built on the primitive your loop just became. Nothing you hold stays where the value is.</p>
 
     <p>The cycle:</p>
 
@@ -220,7 +218,7 @@ footer .spacer{margin-left:auto}
 
     <p>Each hardened loop feeds the layer above it, that layer hardens and feeds the next, and the frontier — wherever the live value currently sits — never stops rising. The cycle runs until it runs out of room: until the loops have worked their way up through the whole human economy and there's almost nothing left that a person used to price and a machine can't now run. One hardened layer at a time, all the way up.</p>
 
-    <p>MVP asked what to build. The better question now is which loop pays. The asset that lasts isn't the loop. It's being where the value is — a rung ahead of the commoditization rising under you — and the loop is just what you hold while you're climbing.</p>
+    <p>MVP asked what to build. The better question now is which loop pays. The asset that lasts isn't the loop. It's a rung ahead of the commoditization rising under you.</p>
 
     <section class="comments" id="comments" aria-label="Comments">
       <div class="comments-label">Discussion</div>
