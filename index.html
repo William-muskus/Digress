@@ -37,13 +37,13 @@ html[data-theme=light] #crt::after{background:radial-gradient(125% 125% at 50% 4
 .filters{display:flex;flex-wrap:wrap;gap:4px 18px;padding:28px 0 8px;border-bottom:1px solid var(--hair)}
 .chip{font-family:var(--mono);font-size:11px;border:0;background:transparent;color:var(--sub);padding:6px 0;border-radius:0;cursor:pointer;display:flex;align-items:center;gap:8px;letter-spacing:.08em;text-transform:lowercase}
 .chip .dot{width:6px;height:6px;border-radius:0}
-.chip[data-d=phil] .dot{background:#9a78d6}.chip[data-d=ml] .dot{background:#3fcf9a}.chip[data-d=quant] .dot{background:#e0922f}.chip[data-d=game] .dot{background:#e0573f}.chip[data-d=build] .dot{background:#4f9fd0}
+.chip[data-d=phil] .dot{background:#9a78d6}.chip[data-d=ml] .dot{background:#3fcf9a}.chip[data-d=quant] .dot{background:#e0922f}.chip[data-d=game] .dot{background:#e0573f}.chip[data-d=build] .dot{background:#4f9fd0}.chip[data-d=econ] .dot{background:#c9a84f}
 .chip:hover{color:var(--ink)}
 .chip.off{opacity:.28;text-decoration:line-through;text-decoration-thickness:1px}
 .index{padding:0 0 90px;display:flex;flex-direction:column}
 .entry{display:block;padding:28px 0;border-bottom:1px solid var(--hair);background:transparent;position:relative;transition:color .25s}
 .entry:hover .etitle{color:var(--ac)}
-.entry[data-d=phil]{--ac:#9a78d6}.entry[data-d=ml]{--ac:#3fcf9a}.entry[data-d=quant]{--ac:#e0922f}.entry[data-d=game]{--ac:#e0573f}.entry[data-d=build]{--ac:#4f9fd0}
+.entry[data-d=phil]{--ac:#9a78d6}.entry[data-d=ml]{--ac:#3fcf9a}.entry[data-d=quant]{--ac:#e0922f}.entry[data-d=game]{--ac:#e0573f}.entry[data-d=build]{--ac:#4f9fd0}.entry[data-d=econ]{--ac:#c9a84f}
 .ehead{display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;letter-spacing:.06em}
 .enum{color:var(--sub);opacity:.55}.etag{color:var(--ac);letter-spacing:.1em;text-transform:uppercase}
 .edate{margin-left:auto;color:var(--sub);opacity:.55}
@@ -76,12 +76,13 @@ footer .spacer{margin-left:auto}
       <button class="chip" data-d="quant"><span class="dot"></span>quant</button>
       <button class="chip" data-d="game"><span class="dot"></span>game design</button>
       <button class="chip" data-d="build"><span class="dot"></span>builds</button>
+      <button class="chip" data-d="econ"><span class="dot"></span>economy</button>
     </div>
     <main class="index" id="index">
-      <a class="entry" data-d="build" href="posts/death-of-mvp.html">
+      <a class="entry" data-d="econ" href="posts/death-of-mvp.html">
         <div class="ehead">
           <span class="enum">001</span>
-          <span class="etag">builds</span>
+          <span class="etag">economy</span>
           <span class="edate">2026.07</span>
         </div>
         <div class="etitle">On the Death of MVP, the Birth of MPL, and How Value Will Flow Next</div>
@@ -633,7 +634,7 @@ if(reduce){ animateSystem(sysA,0); camFor(sysA.spec,0); renderTo(scene,rt,pixbuf
 else requestAnimationFrame(loop);
 addEventListener('click',()=>{ if(phase<HOLD) phase=HOLD; });
 
-const active={phil:1,ml:1,quant:1,game:1,build:1};
+const active={phil:1,ml:1,quant:1,game:1,build:1,econ:1};
 document.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{
   const d=c.dataset.d; active[d]=!active[d]; c.classList.toggle('off',!active[d]);
   document.querySelectorAll('.entry').forEach(e=>e.style.display=active[e.dataset.d]?'':'none');
