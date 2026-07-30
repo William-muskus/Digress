@@ -15,7 +15,7 @@ Personal notebook at [digress.blog](https://digress.blog).
 1. Draft in `drafts/your-slug.html` using an existing post as the template.
 2. When ready, move it to `posts/your-slug.html`.
 3. Add an entry to the `<main class="index">` list in `index.html`:
-   - `data-d` one of: `phil` | `ml` | `quant` | `game` | `build`
+   - `data-d` one of: `phil` | `ml` | `quant` | `game` | `build` | `econ`
    - `href` pointing at the post file
    - number, tag, date, title, one-line description, status
 4. Merge to `main` — Pages deploys automatically.
