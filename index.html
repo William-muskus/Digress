@@ -635,10 +635,21 @@ else requestAnimationFrame(loop);
 addEventListener('click',()=>{ if(phase<HOLD) phase=HOLD; });
 
 const active={phil:1,ml:1,quant:1,game:1,build:1,econ:1};
-document.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{
-  const d=c.dataset.d; active[d]=!active[d]; c.classList.toggle('off',!active[d]);
+function applyFilters(){
+  document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('off',!active[c.dataset.d]));
   document.querySelectorAll('.entry').forEach(e=>e.style.display=active[e.dataset.d]?'':'none');
+}
+document.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{
+  const d=c.dataset.d; active[d]=!active[d]; applyFilters();
 }));
+(function applyHashFilter(){
+  const key=(location.hash||'').replace(/^#/,'').trim();
+  if(!key||!(key in active)) return;
+  Object.keys(active).forEach(k=>active[k]=k===key?1:0);
+  applyFilters();
+  const index=document.getElementById('index');
+  if(index) index.scrollIntoView({block:'start'});
+})();
 </script>
 </body>
 </html>
