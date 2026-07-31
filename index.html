@@ -92,6 +92,41 @@ footer .spacer{margin-left:auto}
     <footer><span>DIGRESS</span><span>&copy; 2026 William Muskus</span><span class="spacer"></span><span>probably partially wrong</span></footer>
   </div>
 </div>
+<script>
+(function(){
+  const active={phil:1,ml:1,quant:1,game:1,build:1,econ:1};
+  function applyFilters(){
+    document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('off',!active[c.dataset.d]));
+    document.querySelectorAll('.entry').forEach(e=>e.style.display=active[e.dataset.d]?'':'none');
+  }
+  document.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{
+    const d=c.dataset.d; active[d]=!active[d]; applyFilters();
+  }));
+  function scrollToIndex(){
+    const target=document.getElementById('filters')||document.getElementById('index');
+    if(!target) return;
+    const top=Math.max(0, target.getBoundingClientRect().top + window.scrollY - 24);
+    window.scrollTo(0, top);
+  }
+  function applyHashFilter(){
+    const key=(location.hash||'').replace(/^#/,'').trim();
+    if(!key||!(key in active)) return;
+    Object.keys(active).forEach(k=>active[k]=k===key?1:0);
+    applyFilters();
+    scrollToIndex();
+    requestAnimationFrame(scrollToIndex);
+    setTimeout(scrollToIndex, 50);
+    setTimeout(scrollToIndex, 250);
+    addEventListener('load', function onLoad(){
+      removeEventListener('load', onLoad);
+      scrollToIndex();
+      setTimeout(scrollToIndex, 100);
+    });
+  }
+  applyHashFilter();
+  addEventListener('hashchange', applyHashFilter);
+})();
+</script>
 <script type="importmap">
 { "imports": { "three": "https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.module.min.js" } }
 </script>
@@ -633,23 +668,6 @@ function loop(){
 if(reduce){ animateSystem(sysA,0); camFor(sysA.spec,0); renderTo(scene,rt,pixbuf); writeAscii(); }
 else requestAnimationFrame(loop);
 addEventListener('click',()=>{ if(phase<HOLD) phase=HOLD; });
-
-const active={phil:1,ml:1,quant:1,game:1,build:1,econ:1};
-function applyFilters(){
-  document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('off',!active[c.dataset.d]));
-  document.querySelectorAll('.entry').forEach(e=>e.style.display=active[e.dataset.d]?'':'none');
-}
-document.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{
-  const d=c.dataset.d; active[d]=!active[d]; applyFilters();
-}));
-(function applyHashFilter(){
-  const key=(location.hash||'').replace(/^#/,'').trim();
-  if(!key||!(key in active)) return;
-  Object.keys(active).forEach(k=>active[k]=k===key?1:0);
-  applyFilters();
-  const index=document.getElementById('index');
-  if(index) index.scrollIntoView({block:'start'});
-})();
 </script>
 </body>
 </html>
